@@ -1,29 +1,19 @@
 package com.devcolibri.common.model;
 
 /**
- * Created by s on 11.11.16.
+ * Created by s on 24.11.16.
  */
-
 public class Users {
-    private int id;
-    private String login;
+    private String username;
     private String password;
-    private String email;
+    private byte enabled;
 
-    public int getId() {
-        return id;
+    public String getUsername() {
+        return username;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -34,12 +24,12 @@ public class Users {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public byte getEnabled() {
+        return enabled;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEnabled(byte enabled) {
+        this.enabled = enabled;
     }
 
     @Override
@@ -49,20 +39,18 @@ public class Users {
 
         Users users = (Users) o;
 
-        if (id != users.id) return false;
-        if (login != null ? !login.equals(users.login) : users.login != null) return false;
+        if (enabled != users.enabled) return false;
+        if (username != null ? !username.equals(users.username) : users.username != null) return false;
         if (password != null ? !password.equals(users.password) : users.password != null) return false;
-        if (email != null ? !email.equals(users.email) : users.email != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (login != null ? login.hashCode() : 0);
+        int result = username != null ? username.hashCode() : 0;
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (int) enabled;
         return result;
     }
 }

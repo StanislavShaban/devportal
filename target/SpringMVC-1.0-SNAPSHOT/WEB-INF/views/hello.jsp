@@ -5,6 +5,10 @@
 <html>
 <body>
 	<h1>Message : ${message}</h1>
+	<form method = "GET" action = "/mainPageParam">
+		<input name="login" type="text"/>
+		<input type = "submit" value = "OK"/>
+	</form>
 	<div align="center">
 		<h1>Contact List</h1>
 		<table border="1">

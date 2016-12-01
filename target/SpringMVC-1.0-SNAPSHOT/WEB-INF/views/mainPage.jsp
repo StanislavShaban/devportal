@@ -1,259 +1,435 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<html lang="en">
 
-<!DOCTYPE html>
-<!-- saved from url=(0043)http://getbootstrap.com/examples/dashboard/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+<head>
 
-    <title>Dashboard Template for Bootstrap</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <!-- Bootstrap core CSS -->
-    <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+  <title>SB Admin - Bootstrap Admin Template</title>
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="./Dashboard Template for Bootstrap_files/ie10-viewport-bug-workaround.css" rel="stylesheet">
+  <!-- Bootstrap Core CSS -->
+  <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+  <link href="<c:url value="/resources/css/thumbnail-style.css"/>" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="<c:url value="/resources/css/dashboard.css"/>" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="<c:url value="/resources/css/sb-admin.css"/>" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="./Dashboard Template for Bootstrap_files/ie-emulation-modes-warning.js"></script>
+  <!-- Morris Charts CSS -->
+  <link href="<c:url value="/resources/css/plugins/morris.css"/>" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
+  <!--Profile CSS styles-->
+  <link href="<c:url value="/resources/css/profile.css"/>" rel="stylesheet">
 
-  <body>
+  <!-- Custom Fonts -->
+  <link href="<c:url value="/resources/font-awesome/css/font-awesome.min.css"/>" rel="stylesheet">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="http://getbootstrap.com/examples/dashboard/#">Project name</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://getbootstrap.com/examples/dashboard/#">Dashboard</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/#">Settings</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/#">Profile</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/#">Help</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div>
-      </div>
-    </nav>
+  <script src="<c:url value="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"/>"></script>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="http://getbootstrap.com/examples/dashboard/#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/#">Reports</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/#">Analytics</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/#">Export</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="http://getbootstrap.com/examples/dashboard/">Nav item</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/">Nav item again</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/">One more nav</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/">Another nav item</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/">More navigation</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="http://getbootstrap.com/examples/dashboard/">Nav item again</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/">One more nav</a></li>
-            <li><a href="http://getbootstrap.com/examples/dashboard/">Another nav item</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Name : ${message}</h1>
-          <form method = "GET" action = "/mainPageParam">
-              <input name="login" type="text"/>
-            <input type = "submit" value = "OK"/>
-          </form>
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
-          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+</head>
+
+<h1>User page</h1>
+<div id="wrapper">
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">SB Admin</a>
     </div>
+    <!-- Top Menu Items -->
+    <ul class="nav navbar-right top-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+        <ul class="dropdown-menu message-dropdown">
+          <li class="message-preview">
+            <a href="#">
+              <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                <div class="media-body">
+                  <h5 class="media-heading"><strong>John Smith</strong>
+                  </h5>
+                  <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="message-preview">
+            <a href="#">
+              <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                <div class="media-body">
+                  <h5 class="media-heading"><strong>John Smith</strong>
+                  </h5>
+                  <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="message-preview">
+            <a href="#">
+              <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                <div class="media-body">
+                  <h5 class="media-heading"><strong>John Smith</strong>
+                  </h5>
+                  <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="message-footer">
+            <a href="#">Read All New Messages</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+        <ul class="dropdown-menu alert-dropdown">
+          <li>
+            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+          </li>
+          <li>
+            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+          </li>
+          <li>
+            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
+          </li>
+          <li>
+            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
+          </li>
+          <li>
+            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
+          </li>
+          <li>
+            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="#">View All</a>
+          </li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${currentSessionUsername} <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#" id = "profile-link"><i class="fa fa-fw fa-user"></i> Profile</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+          </li>
+          <li>
+            <a href="#" id = "settings-link"><i class="fa fa-fw fa-gear"></i> Settings</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="/j_spring_security_logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav side-nav">
+        <li>
+          <a href="#" id = "mainpage-link"><i class="fa fa-fw fa-dashboard"></i> Main page</a>
+        </li>
+        <li>
+          <a href="#" id = "profile-link-bar"><i class="fa fa-fw fa-dashboard"></i> Profile</a>
+        </li>
+        <li>
+          <a href="#" id = "projects-link-bar"><i class="fa fa-fw fa-bar-chart-o"></i> Projects</a>
+        </li>
+        <li>
+          <a href="#" id = "co-workers-link"><i></i> Co-Workers</a>
+        </li>
+        <li>
+          <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+        </li>
+        <li>
+          <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+        </li>
+        <li>
+          <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
+        </li>
+        <li>
+          <a href="blank-page.jsp"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<c:url value = "/resources/css/jquery.min.js"/>"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="./Dashboard Template for Bootstrap_files/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="./Dashboard Template for Bootstrap_files/holder.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./Dashboard Template for Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
-  
+  <div id="page-wrapper">
+    <div class="container-fluid">
+      <!-- Page Heading -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="page-header">
+            Dashboard <small>Statistics Overview</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li class="active">
+              <i class="fa fa-dashboard"></i> Dashboard
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!-- /.row -->
 
-</body></html>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <i class="fa fa-info-circle"></i>  <strong>Like SB Admin?</strong> Try out <a href="http://startbootstrap.com/template-overviews/sb-admin-2" class="alert-link">SB Admin 2</a> for additional features!
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-3">
+                  <i class="fa fa-comments fa-5x"></i>
+                </div>
+                <div class="col-xs-9 text-right">
+                  <div class="huge">${projectCount}</div>
+                  <div>Projects in development</div>
+                </div>
+              </div>
+            </div>
+            <a href="#" id = "projects-link">
+              <div class="panel-footer">
+                <span class="pull-left">View Details</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="panel panel-green">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-3">
+                  <i class="fa fa-tasks fa-5x"></i>
+                </div>
+                <div class="col-xs-9 text-right">
+                  <div class="huge">12</div>
+                  <div>New Tasks!</div>
+                </div>
+              </div>
+            </div>
+            <a href="#">
+              <div class="panel-footer">
+                <span class="pull-left">View Details</span>
+                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                <div class="clearfix"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
+              </div>
+              <div class="panel-body">
+                <div id="morris-area-chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
+              </div>
+              <div class="panel-body">
+                <div id="morris-donut-chart"></div>
+                <div class="text-right">
+                  <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
+              </div>
+              <div class="panel-body">
+                <div class="list-group">
+                  <a href="#" class="list-group-item">
+                    <span class="badge">just now</span>
+                    <i class="fa fa-fw fa-calendar"></i> Calendar updated
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">4 minutes ago</span>
+                    <i class="fa fa-fw fa-comment"></i> Commented on a post
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">23 minutes ago</span>
+                    <i class="fa fa-fw fa-truck"></i> Order 392 shipped
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">46 minutes ago</span>
+                    <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">1 hour ago</span>
+                    <i class="fa fa-fw fa-user"></i> A new user has been added
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">2 hours ago</span>
+                    <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">yesterday</span>
+                    <i class="fa fa-fw fa-globe"></i> Saved the world
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">two days ago</span>
+                    <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
+                  </a>
+                </div>
+                <div class="text-right">
+                  <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
+              </div>
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                    <tr>
+                      <th>Order #</th>
+                      <th>Order Date</th>
+                      <th>Order Time</th>
+                      <th>Amount (USD)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>3326</td>
+                      <td>10/21/2013</td>
+                      <td>3:29 PM</td>
+                      <td>$321.33</td>
+                    </tr>
+                    <tr>
+                      <td>3325</td>
+                      <td>10/21/2013</td>
+                      <td>3:20 PM</td>
+                      <td>$234.34</td>
+                    </tr>
+                    <tr>
+                      <td>3324</td>
+                      <td>10/21/2013</td>
+                      <td>3:03 PM</td>
+                      <td>$724.17</td>
+                    </tr>
+                    <tr>
+                      <td>3323</td>
+                      <td>10/21/2013</td>
+                      <td>3:00 PM</td>
+                      <td>$23.71</td>
+                    </tr>
+                    <tr>
+                      <td>3322</td>
+                      <td>10/21/2013</td>
+                      <td>2:49 PM</td>
+                      <td>$8345.23</td>
+                    </tr>
+                    <tr>
+                      <td>3321</td>
+                      <td>10/21/2013</td>
+                      <td>2:23 PM</td>
+                      <td>$245.12</td>
+                    </tr>
+                    <tr>
+                      <td>3320</td>
+                      <td>10/21/2013</td>
+                      <td>2:15 PM</td>
+                      <td>$5663.54</td>
+                    </tr>
+                    <tr>
+                      <td>3319</td>
+                      <td>10/21/2013</td>
+                      <td>2:13 PM</td>
+                      <td>$943.45</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="text-right">
+                  <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.container-fluid -->
+  </div>
+  <!-- /#page-wrapper -->
+
+</div>
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="<c:url value="/resources/js/jquery.js"/>"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="<c:url value="/resources/js/bootstrap.js"/>"></script>
+<script src="<c:url value="/resources/js/mainPage.js"/>"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
+
+
+
+</body>
+
+</html>

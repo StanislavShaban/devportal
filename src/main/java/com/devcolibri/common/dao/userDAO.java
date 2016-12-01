@@ -1,5 +1,6 @@
 package com.devcolibri.common.dao;
 
+import com.devcolibri.common.model.UserProfile;
 import com.devcolibri.common.model.Users;
 
 import java.util.List;
@@ -9,5 +10,8 @@ import java.util.List;
  */
 public interface userDAO {
     public List<Users> getListOfUsers();
-    public void insertUser(Users users);
+    public UserProfile findUser(String username);
+    public Users getUserRole(String username);
+    public List<UserProfile> getUserProfileList();
+    public Users getUserByName(String username);
 }
