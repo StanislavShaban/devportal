@@ -2,11 +2,9 @@ package com.devcolibri.common.dao;
 
 import com.devcolibri.common.model.UserProfile;
 import com.devcolibri.common.model.Users;
-import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;

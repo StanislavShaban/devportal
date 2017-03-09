@@ -1,7 +1,7 @@
 package com.devcolibri.common.model;
 
 /**
- * Created by s on 24.11.16.
+ * Created by Shaban on 09.03.2017.
  */
 public class UserProfile {
     private String username;

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html lang="en">
 
 <head>
@@ -169,6 +170,28 @@
         <li>
           <a href="#" id = "co-workers-link"><i></i> Co-Workers</a>
         </li>
+        <sec:authorize access = "hasRole('ROLE_MANAGER')">
+        <li>
+          <a href="#" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Managment <i class="fa fa-fw fa-caret-down"></i></a>
+          <ul id="demo" class="collapse">
+            <li>
+              <a href="#" id = "add-project-form">Add project</a>
+            </li>
+            <li>
+              <a href="#">Complete project</a>
+            </li>
+            <li>
+              <a href="#">Edit project description</a>
+            </li>
+            <li>
+              <a href="#">Add user to project</a>
+            </li>
+            <li>
+              <a href="#">Create team</a>
+            </li>
+          </ul>
+        </li>
+        </sec:authorize>
         <li>
           <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
         </li>
@@ -426,6 +449,9 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="<c:url value="/resources/js/bootstrap.js"/>"></script>
 <script src="<c:url value="/resources/js/mainPage.js"/>"></script>
+<script src="<c:url value="/resources/js/adminPage.js"/>"></script>
+<script src="<c:url value="/resources/js/management.js"/>"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
 
 

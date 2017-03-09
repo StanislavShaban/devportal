@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.devcolibri.common.model.UserProfile" table="user_profile" schema="cdb">
+        <id name="username" column="username"/>
+        <property name="name" column="name"/>
+        <property name="surname" column="surname"/>
+        <property name="email" column="email"/>
+        <property name="birthday" column="birthday"/>
+        <property name="country" column="country"/>
+    </class>
+</hibernate-mapping>

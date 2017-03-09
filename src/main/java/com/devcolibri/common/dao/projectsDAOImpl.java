@@ -1,8 +1,6 @@
 package com.devcolibri.common.dao;
 
 import com.devcolibri.common.model.Projects;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,5 +25,12 @@ public class projectsDAOImpl implements projectsDAO {
                 .createQuery("from Projects")
                 .list();
         return list;
+    }
+
+    @Override
+    @Transactional
+    public void addProject(Projects  projects){
+        Session session = sessionFactory.getCurrentSession();
+        session.save(projects);
     }
 }

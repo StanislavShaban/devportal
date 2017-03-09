@@ -1,9 +1,7 @@
 package com.devcolibri.common.dao;
 
 import com.devcolibri.common.model.Projects;
-import org.hibernate.SessionFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,4 +9,5 @@ import java.util.List;
  */
 public interface projectsDAO {
     public List<Projects> getListOfProjects();
+    public void addProject(Projects project);
 }
